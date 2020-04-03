@@ -1,6 +1,5 @@
 ## MQTT Panel
 
-
 ![controls](https://github.com/geeks-r-us/mqtt-panel/raw/master/src/img/logo.svg?sanitize=true "controls")
 [![CircleCI](https://circleci.com/gh/geeks-r-us/mqtt-panel.svg?style=svg)](https://circleci.com/gh/geeks-r-us/mqtt-panel)
 
