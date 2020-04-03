@@ -153,7 +153,9 @@ jobs:
             - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: "Publish Release on GitHub"
-          command: ./node_modules/.bin/grafana-toolkit plugin:github-publish
+          command: |
+          yarn install --pure-lockfile
+          ./node_modules/.bin/grafana-toolkit plugin:github-publish
 
 workflows:
   version: 2
