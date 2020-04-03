@@ -1,0 +1,39 @@
+<div class="gf-form-inline" ng-if="ctrl.panel.mode === 'Text'">
+  <div class="gf-form">
+    <input
+      type="text"
+      ng-model="ctrl.panel.value"
+      class="gf-form-input"
+    />
+  </div>
+  <div class="gf-form width-6">
+    <button class="btn navbar-button" type="button" text="Update" ng-click="ctrl.publish()" >
+      {{ctrl.panel.text}}
+    </button>
+  </div>
+</div>
+<div ng-if="ctrl.panel.mode==='Slider'">
+  <div class="slidercontainer">
+    <input 
+      class="slider" 
+      type="range" 
+      string-to-number
+      ng-model="ctrl.panel.value" 
+      min="{{ctrl.panel.minValue}}" 
+      max="{{ctrl.panel.maxValue}}" 
+      step="{{ctrl.panel.step}}" 
+      ng-change="ctrl.publish()">
+  </div>
+  <div class="slider-text">
+   {{ctrl.panel.text}} : {{ctrl.panel.value}}
+  </div>
+</div>
+<div ng-if="ctrl.panel.mode==='Switch'">
+  <gf-form-switch 
+    class="gf-form" 
+    bool-to-number
+    label="{{ctrl.panel.text}}" 
+    checked="ctrl.panel.value" 
+    on-change="ctrl.publish()"> 
+  </gf-form-switch>
+</div>

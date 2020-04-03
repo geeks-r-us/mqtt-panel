@@ -1,0 +1,32 @@
+{
+  "name": "geeksrus-mqtt-panel",
+  "version": "1.0.0",
+  "description": "A panel to enable grafana to fulfil simple control tasks via MQTT",
+  "scripts": {
+    "build": "grafana-toolkit plugin:build",
+    "test": "grafana-toolkit plugin:test",
+    "dev": "grafana-toolkit plugin:dev",
+    "watch": "grafana-toolkit plugin:dev --watch"
+  },
+  "author": "geeks-r-us",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@grafana/data": "next",
+    "@grafana/toolkit": "next",
+    "@grafana/ui": "next",
+    "@types/grafana": "github:CorpGlory/types-grafana.git"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.34",
+    "@types/paho-mqtt": "^1.0.4",
+    "angular": "^1.7.9",
+    "jquery": "^3.4.1",
+    "mqtt": "^3.0.0"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.9.0"
+  },
+  "engines": {
+    "node": ">=12 <13"
+  }
+}
