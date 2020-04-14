@@ -1,0 +1,34 @@
+{
+  "type": "panel",
+  "name": "mqtt-panel",
+  "id": "geeksrus-mqtt-panel",
+  "info": {
+    "description": "A panel to enable grafana to fulfil simple control tasks via MQTT",
+    "author": {
+      "name": "geeks-r-us",
+      "url": "https://github.com/geeks-r-us/mqtt-panel"
+    },
+    "keywords": [
+      "MQTT"
+    ],
+    "logos": {
+      "small": "img/logo.svg",
+      "large": "img/logo.svg"
+    },
+    "links": [],
+    "screenshots": [],
+    "version": "1.0.1",
+    "updated": "2020/04/14",
+    "build": {
+      "time": 1586898316433,
+      "repo": "git@github.com:geeks-r-us/mqtt-panel.git",
+      "branch": "master",
+      "hash": "1b880e4bc4b2e91f1c75e426325fa4e0630a1464",
+      "number": 84
+    }
+  },
+  "dependencies": {
+    "grafanaVersion": "6.3.x",
+    "plugins": []
+  }
+}

@@ -1,0 +1,57 @@
+<div class="editor-row">
+  <div class="section gf-form-group">    
+    <h5 class="section-heading">Connection</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Server</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.mqttServer"
+        class="gf-form-input"
+        ng-blur="ctrl.connect(); ctrl.render()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Server port</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.mqttServerPort"
+        class="gf-form-input"
+        ng-blur="ctrl.connect(); ctrl.render()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Subscribe Topic</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.mqttTopicSubscribe"
+        class="gf-form-input"
+        ng-blur="ctrl.render()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Publish Topic</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.mqttTopicPublish"
+        class="gf-form-input"
+        ng-blur="ctrl.render()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Connected</label>
+      <div class="connection-state-outer">
+        <div class="connection-state" ng-class="ctrl.connected();"></div>
+      </div>
+    </div>
+  </div>
+  <div class="gf-form">
+    <button class="btn navbar-button" type="button" ng-click="ctrl.render()" >
+      Test
+    </button>
+  </div>
+
+</div>
