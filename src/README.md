@@ -23,7 +23,7 @@ to servers reachable by your browser.
 If you like to test this plugin the easies way is to load it into a grafana docker container. 
 
 ```
-docker run -d -p 3000:3000 -e "GF_INSTALL_PLUGINS=https://github.com/geeks-r-us/mqtt-panel/releases/download/v1.0.0/geeksrus-mqtt-panel-1.0.0.zip;mqtt-panel" --name=grafana grafana/grafana
+docker run -d -p 3000:3000 -e "GF_INSTALL_PLUGINS=https://github.com/geeks-r-us/mqtt-panel/releases/download/v1.0.0/geeksrus-mqtt-panel-1.0.1.zip;mqtt-panel" --name=grafana grafana/grafana
 ```
 Open http://localhost:3000 in your browser
 

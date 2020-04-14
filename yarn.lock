@@ -947,10 +947,29 @@
     lodash "4.17.15"
     rxjs "6.5.4"
 
+"@grafana/data@6.7.2":
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/@grafana/data/-/data-6.7.2.tgz#f3f303654923cac17da6b3664d31227fc088fe54"
+  integrity sha512-W/oygRtN8FrFalaIaCndUqSWN0lRQQA05/q4sulxy7wMY6o+JXJwtmFA83tDeJ4l4SmVPISK5XewA1um4U77Pw==
+  dependencies:
+    apache-arrow "0.15.1"
+    lodash "4.17.15"
+    rxjs "6.5.4"
+
 "@grafana/eslint-config@^1.0.0-rc1":
   version "1.0.0-rc1"
   resolved "https://registry.yarnpkg.com/@grafana/eslint-config/-/eslint-config-1.0.0-rc1.tgz#3b0a1abddfea900a57abc9526ad31abb1da2d42c"
   integrity sha512-xmcJR6mUYw1llq3m8gT2kE7xoq6yLMUgNf2Mf1yZvDCx2cXFSyaLlGs1dqjFWjJDbV46GdhYRAyRbyGR+J9QKg==
+
+"@grafana/runtime@^6.7.2":
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/@grafana/runtime/-/runtime-6.7.2.tgz#2b8e7279f45f3b361b30b4032c20b97d52ecf6a1"
+  integrity sha512-r4bohPeeWiaDRcV6S7NnfLCuPEH/oE9cjlVE6C1S7uuQrh4rLU/CqOlOFcZ4YlapS34DaBhxFonsEgamGHb1pQ==
+  dependencies:
+    "@grafana/data" "6.7.2"
+    "@grafana/ui" "6.7.2"
+    systemjs "0.20.19"
+    systemjs-plugin-css "0.1.37"
 
 "@grafana/slate-react@0.22.9-grafana":
   version "0.22.9-grafana"
@@ -1073,6 +1092,48 @@
   dependencies:
     "@emotion/core" "^10.0.27"
     "@grafana/data" "6.7.1"
+    "@grafana/slate-react" "0.22.9-grafana"
+    "@grafana/tsconfig" "^1.0.0-rc1"
+    "@torkelo/react-select" "3.0.8"
+    "@types/react-color" "2.17.0"
+    "@types/react-select" "3.0.8"
+    "@types/react-table" "7.0.2"
+    "@types/slate" "0.47.1"
+    "@types/slate-react" "0.22.5"
+    bizcharts "^3.5.5"
+    classnames "2.2.6"
+    d3 "5.15.0"
+    emotion "10.0.27"
+    immutable "3.8.2"
+    jquery "3.4.1"
+    lodash "4.17.15"
+    moment "2.24.0"
+    papaparse "4.6.3"
+    rc-cascader "0.17.5"
+    rc-drawer "3.0.2"
+    rc-slider "8.7.1"
+    rc-time-picker "^3.7.2"
+    react "16.12.0"
+    react-calendar "2.19.2"
+    react-color "2.17.0"
+    react-custom-scrollbars "4.2.1"
+    react-dom "16.12.0"
+    react-highlight-words "0.11.0"
+    react-hook-form "4.5.3"
+    react-popper "1.3.3"
+    react-storybook-addon-props-combinations "1.1.0"
+    react-table "7.0.0-rc.15"
+    react-transition-group "2.6.1"
+    slate "0.47.8"
+    tinycolor2 "1.4.1"
+
+"@grafana/ui@6.7.2":
+  version "6.7.2"
+  resolved "https://registry.yarnpkg.com/@grafana/ui/-/ui-6.7.2.tgz#cc27f17220bfecb76731d268dc72535be2891e4a"
+  integrity sha512-YXunXjBi2SgF9QhSa3koNHW2eS83tByiR9+e6trJONrzwpMtxfSytBOzt4IeZb3dH9dofP0I6P20K4VX//HnKQ==
+  dependencies:
+    "@emotion/core" "^10.0.27"
+    "@grafana/data" "6.7.2"
     "@grafana/slate-react" "0.22.9-grafana"
     "@grafana/tsconfig" "^1.0.0-rc1"
     "@torkelo/react-select" "3.0.8"
@@ -10792,6 +10853,16 @@ symbol-tree@^3.2.2:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/symbol-tree/-/symbol-tree-3.2.4.tgz#430637d248ba77e078883951fb9aa0eed7c63fa2"
   integrity sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==
+
+systemjs-plugin-css@0.1.37:
+  version "0.1.37"
+  resolved "https://registry.yarnpkg.com/systemjs-plugin-css/-/systemjs-plugin-css-0.1.37.tgz#684847252ca69b7da24a1201094c86274324e82f"
+  integrity sha512-wCGG62zYXuOlNji5FlBjeMFAnLeAO/HQmFg+8UBX/mlHoAKLHlGFYRstlhGKibRU2oxk/BH9DaihOuhhNLi7Kg==
+
+systemjs@0.20.19:
+  version "0.20.19"
+  resolved "https://registry.yarnpkg.com/systemjs/-/systemjs-0.20.19.tgz#c2b9e79c19f4bea53a19b1ed3f974ffb463be949"
+  integrity sha512-H/rKwNEEyej/+IhkmFNmKFyJul8tbH/muiPq5TyNoVTwsGhUjRsN3NlFnFQUvFXA3+GQmsXkCNXU6QKPl779aw==
 
 table-layout@^0.4.3:
   version "0.4.5"

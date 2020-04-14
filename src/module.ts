@@ -44,7 +44,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   firstValues: KeyValue[] = [];
 
   /** @ngInject */
-  constructor($scope, $injector) {
+  constructor($scope, $injector, public templateSrv) {
     super($scope, $injector);
     defaultsDeep(this.panel, this.panelDefaults);
 
@@ -56,13 +56,18 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.events.on('data-error', this.onDataError.bind(this));
 
     // Create a client instance: Broker, Port, Websocket Path, Client ID
-    var url = this.panel.mqttProtocol + '://' + this.panel.mqttServer + ':' + this.panel.mqttServerPort;
+    var url =
+      this.panel.mqttProtocol +
+      '://' +
+      this.templateSrv.replace(String(this.panel.mqttServer)) +
+      ':' +
+      this.templateSrv.replace(String(this.panel.mqttServerPort));
     console.log(url);
     this.client = mqtt.connect(url);
     this.client.on('connectionLost', this.onConnectionLost.bind(this));
     this.client.on('connect', this.onConnect.bind(this));
     this.client.on('message', this.onMessage.bind(this));
-    this.client.subscribe(this.panel.mqttTopicSubscribe);
+    this.client.subscribe(this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
 
     angluar.module('grafana.directives').directive('stringToNumber', this.stringToNumber);
   }
@@ -150,7 +155,12 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
   connect() {
     this.client.end(true);
-    var url = this.panel.mqttProtocol + '://' + this.panel.mqttServer + ':' + this.panel.mqttServerPort;
+    var url =
+      this.panel.mqttProtocol +
+      '://' +
+      this.templateSrv.replace(String(this.panel.mqttServer)) +
+      ':' +
+      this.templateSrv.replace(String(this.panel.mqttServerPort));
     console.log(url);
     this.client = mqtt.connect(url);
   }
@@ -166,12 +176,12 @@ export default class MqttCtrl extends MetricsPanelCtrl {
         value = this.panel.value.toString();
         break;
     }
-    console.log('Published : ' + this.panel.mqttTopicPublish + ' : ' + value);
-    this.client.publish(this.panel.mqttTopicPublish, value);
+    console.log('Published : ' + this.templateSrv.replace(String(this.panel.mqttTopicPublish)) + ' : ' + value);
+    this.client.publish(this.templateSrv.replace(String(this.panel.mqttTopicPublish)), value);
   }
 
   connected() {
-    return this.client.connected ? 'successful' : 'failed';
+    return this.client != null && this.client.connected ? 'successful' : 'failed';
   }
 }
 
