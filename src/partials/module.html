@@ -22,7 +22,8 @@
       min="{{ctrl.panel.minValue}}" 
       max="{{ctrl.panel.maxValue}}" 
       step="{{ctrl.panel.step}}" 
-      ng-change="ctrl.publish()">
+      ng-change="ctrl.publish()"
+      ng-model-options="{ debounce: 500 }"/>
   </div>
   <div class="slider-text">
    {{ctrl.panel.text}} : {{ctrl.panel.value}}

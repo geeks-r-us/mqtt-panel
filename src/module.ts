@@ -30,7 +30,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     // Slider
     minValue: 0,
     maxValue: 100,
-    step: 0,
+    step: 1,
     // Switch //TODO: Translate
     offValue: 'false',
     onValue: 'true',
