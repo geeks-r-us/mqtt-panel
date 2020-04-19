@@ -2,7 +2,7 @@ import { MetricsPanelCtrl } from 'grafana/app/plugins/sdk';
 import defaultsDeep from 'lodash/defaultsDeep';
 import { DataFrame } from '@grafana/data';
 import $ from 'jquery';
-import mqtt from 'mqtt';
+import mqtt, { MqttClient, IClientOptions } from 'mqtt';
 import './style.css';
 import angluar from 'angular';
 
@@ -23,6 +23,9 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     mqttServerPort: 9001,
     mqttTopicSubscribe: 'grafana/mqtt-panel',
     mqttTopicPublish: 'grafana/mqtt-panel/set',
+    mqttAuth: 'None',
+    mqttUser: '',
+    mqttPassword: '',
     // GUI
     mode: 'Text',
     // Text
@@ -56,14 +59,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.events.on('data-error', this.onDataError.bind(this));
 
     // Create a client instance: Broker, Port, Websocket Path, Client ID
-    var url =
-      this.panel.mqttProtocol +
-      '://' +
-      this.templateSrv.replace(String(this.panel.mqttServer)) +
-      ':' +
-      this.templateSrv.replace(String(this.panel.mqttServerPort));
-    console.log(url);
-    this.client = mqtt.connect(url);
+    this.client = this.mqttConnect();
     this.client.on('connectionLost', this.onConnectionLost.bind(this));
     this.client.on('connect', this.onConnect.bind(this));
     this.client.on('message', this.onMessage.bind(this));
@@ -104,6 +100,47 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     }
 
     this.firstValues = values;
+  }
+
+  mqttConnect(): MqttClient {
+    var url =
+      this.panel.mqttProtocol +
+      '://' +
+      this.templateSrv.replace(String(this.panel.mqttServer)) +
+      ':' +
+      this.templateSrv.replace(String(this.panel.mqttServerPort));
+    console.log(url);
+
+    var options: IClientOptions = {};
+    if (this.panel.mqttAuth === 'BasicAuth') {
+      options.username = this.templateSrv.replace(String(this.panel.mqttUser));
+      options.password = this.templateSrv.replace(String(this.panel.mqttPassword));
+      console.log('connection with: ' + options.username + ' : ' + options.password);
+    }
+
+    return mqtt.connect(url, options);
+  }
+
+  getProtocols() {
+    return [
+      { text: 'ws', value: 'ws' },
+      { text: 'wss', value: 'wss' },
+    ];
+  }
+
+  getModes() {
+    return [
+      { text: 'Text', value: 'Text' },
+      { text: 'Slider', value: 'Slider' },
+      { text: 'Switch', value: 'Switch' },
+    ];
+  }
+
+  getMqttAuths() {
+    return [
+      { text: 'None', value: 'None' },
+      { text: 'Basic Auth', value: 'BasicAuth' },
+    ];
   }
 
   link(scope: any, elem: any, attrs: any, ctrl: any) {
@@ -155,14 +192,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
   connect() {
     this.client.end(true);
-    var url =
-      this.panel.mqttProtocol +
-      '://' +
-      this.templateSrv.replace(String(this.panel.mqttServer)) +
-      ':' +
-      this.templateSrv.replace(String(this.panel.mqttServerPort));
-    console.log(url);
-    this.client = mqtt.connect(url);
+    this.client = this.mqttConnect();
   }
 
   publish() {
