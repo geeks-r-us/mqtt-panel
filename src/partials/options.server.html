@@ -9,7 +9,7 @@
         lookup-text="true"
         allow-custom = "false"
         get-options="ctrl.getProtocols()"
-        on-change="ctrl.connect(); ctrl.render()"
+        on-change="ctrl.connect(); ctrl.refresh()"
       >
     </gf-form-dropdown>
     </div>
@@ -19,7 +19,7 @@
         type="text"
         ng-model="ctrl.panel.mqttServer"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"
       />
     </div>
@@ -29,7 +29,7 @@
         type="text"
         ng-model="ctrl.panel.mqttServerPort"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"
       />
     </div>
@@ -39,7 +39,7 @@
         type="text"
         ng-model="ctrl.panel.mqttTopicSubscribe"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -49,7 +49,7 @@
         type="text"
         ng-model="ctrl.panel.mqttTopicPublish"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -70,7 +70,7 @@
         lookup-text="true"
         allow-custom = "false"
         get-options="ctrl.getMqttAuths()"
-        on-change="ctrl.connect(); ctrl.render()">
+        on-change="ctrl.connect(); ctrl.refresh()">
       </gf-form-dropdown>
     </div>
     <div class="gf-form" ng-if="ctrl.panel.mqttAuth === 'BasicAuth'">
@@ -79,7 +79,7 @@
         type="text"
         ng-model="ctrl.panel.mqttUser"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"/>
     </div>
     <div class="gf-form" ng-if="ctrl.panel.mqttAuth === 'BasicAuth'">
@@ -88,12 +88,12 @@
         type="password"
         ng-model="ctrl.panel.mqttPassword"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"/>
     </div>
   </div>
   <div class="gf-form">
-    <button class="btn navbar-button" type="button" ng-click="ctrl.render()" >
+    <button class="btn navbar-button" type="button" ng-click="ctrl.refresh()" >
       Test
     </button>
   </div>

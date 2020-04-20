@@ -9,7 +9,7 @@
         lookup-text="true"
         allow-custom = "false"
         get-options="ctrl.getModes()"
-        on-change="ctrl.connect(); ctrl.render()">
+        on-change="ctrl.connect(); ctrl.refresh()">
       </gf-form-dropdown>
     </div>
     <div class="gf-form">
@@ -18,7 +18,7 @@
         type="text"
         ng-model="ctrl.panel.text"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -28,7 +28,7 @@
         type="text"
         ng-model="ctrl.panel.minValue"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -38,7 +38,7 @@
         type="text"
         ng-model="ctrl.panel.maxValue"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -48,7 +48,7 @@
         type="text"
         ng-model="ctrl.panel.step"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -59,7 +59,7 @@
       type="text"
       ng-model="ctrl.panel.offValue"
       class="gf-form-input"
-      ng-blur="ctrl.render()"
+      ng-blur="ctrl.refresh()"
       min="1"
     />
   </div>
@@ -69,7 +69,7 @@
       type="text"
       ng-model="ctrl.panel.onValue"
       class="gf-form-input"
-      ng-blur="ctrl.render()"
+      ng-blur="ctrl.refresh()"
       min="1"
     />
   </div>

@@ -60,10 +60,6 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
     // Create a client instance: Broker, Port, Websocket Path, Client ID
     this.client = this.mqttConnect();
-    this.client.on('connectionLost', this.onConnectionLost.bind(this));
-    this.client.on('connect', this.onConnect.bind(this));
-    this.client.on('message', this.onMessage.bind(this));
-    this.client.subscribe(this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
 
     angluar.module('grafana.directives').directive('stringToNumber', this.stringToNumber);
   }
@@ -118,7 +114,13 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       console.log('connection with: ' + options.username + ' : ' + options.password);
     }
 
-    return mqtt.connect(url, options);
+    let client = mqtt.connect(url, options);
+    client.on('connectionLost', this.onConnectionLost.bind(this));
+    client.on('connect', this.onConnect.bind(this));
+    client.on('message', this.onMessage.bind(this));
+    client.subscribe(this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
+
+    return client;
   }
 
   getProtocols() {
@@ -165,12 +167,12 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   // MQTT
   onConnect() {
     console.log('connected');
-    this.panel.render();
+    this.panel.refresh();
   }
 
   onConnectionLost() {
     console.log('onConnectionLost');
-    this.panel.render();
+    this.panel.refresh();
   }
 
   onMessage(topic, message) {
@@ -187,7 +189,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
     console.log('Received : ' + topic + ' : ' + value.toString());
     this.panel.value = value;
-    this.panel.render();
+    this.panel.refresh();
   }
 
   connect() {
