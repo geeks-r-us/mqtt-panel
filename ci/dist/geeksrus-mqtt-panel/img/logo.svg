@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xml:space="preserve"
+   style="enable-background:new 0 0 100 100;"
+   viewBox="0 0 100 100"
+   height="100px"
+   width="100px"
+   y="0px"
+   x="0px"
+   id="Layer_1"
+   version="1.1"><metadata
+   id="metadata2069"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs2067"><linearGradient
+     gradientUnits="userSpaceOnUse"
+     y2="0.26279029"
+     x2="50.097855"
+     y1="99.846992"
+     x1="49.9939"
+     id="linearGradient2081"
+     xlink:href="#SVGID_1_" /><linearGradient
+     gradientTransform="translate(0.3118503,0.1039501)"
+     y2="0.26279029"
+     x2="50.097855"
+     y1="99.846992"
+     x1="49.9939"
+     gradientUnits="userSpaceOnUse"
+     id="linearGradient2103"
+     xlink:href="#SVGID_1_" /></defs>
+<g
+   id="g2062">
+	<g
+   style="fill-opacity:1;fill:url(#linearGradient2081)"
+   id="g1487">
+		<linearGradient
+   style="fill-opacity:1.0;fill:url(#linearGradient2081)"
+   gradientTransform="matrix(1,0,0,1.1078057,0,-8.8273784)"
+   xlink:href="#SVGID_2_"
+   y2="-2.6487999"
+   x2="49.786301"
+   y1="97.606102"
+   x1="49.786301"
+   gradientUnits="userSpaceOnUse"
+   id="SVGID_1_">
+			<stop
+   id="stop1468"
+   style="stop-color:#FFF33B;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0" />
+			<stop
+   id="stop1470"
+   style="stop-color:#FFE029;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.0595" />
+			<stop
+   id="stop1472"
+   style="stop-color:#FFD218;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.1303" />
+			<stop
+   id="stop1474"
+   style="stop-color:#FEC90F;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.2032" />
+			<stop
+   id="stop1476"
+   style="stop-color:#FDC70C;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.2809" />
+			<stop
+   id="stop1478"
+   style="stop-color:#F3903F;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.6685" />
+			<stop
+   id="stop1480"
+   style="stop-color:#ED683C;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="0.8876" />
+			<stop
+   id="stop1482"
+   style="stop-color:#E93E3A;fill-opacity:1.0;fill:url(#linearGradient2081)"
+   offset="1" />
+		</linearGradient>
+		<path
+   id="path1485"
+   d="m 85.236,0.30758707 c -24.711111,0.062899 -51.655194,0.003633 -70.9,0 -8.003,0 -14.55,7.25280333 -14.55,16.11857193 V 83.89152 c 0,8.865769 6.547,16.11857 14.55,16.11857 h 70.9 c 8.003,0 14.55,-7.25391 14.55,-16.11857 V 16.426159 C 99.786,7.5603904 93.239,0.30758707 85.236,0.30758707 Z M 92.786,83.89152 c 0,4.611795 -3.387,8.363933 -7.55,8.363933 h -70.9 c -4.163,0 -7.55,-3.752138 -7.55,-8.363933 V 16.426159 c 0,-4.611795 3.387,-8.3639327 7.55,-8.3639327 h 70.9 c 4.163,0 7.55,3.7521377 7.55,8.3639327 z"
+   style="fill:url(#linearGradient2081);fill-opacity:1.0;stroke-width:1.05252349" />
+	<text
+   id="text2073"
+   y="60.237564"
+   x="10.981822"
+   style="font-style:normal;font-weight:normal;font-size:26.66666603px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient2103);fill-opacity:1;stroke:none"
+   xml:space="preserve"><tspan
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold';fill:url(#linearGradient2103);fill-opacity:1"
+     y="60.237564"
+     x="10.981822"
+     id="tspan2071">MQTT</tspan></text>
+</g>
+	
+</g>
+</svg>
