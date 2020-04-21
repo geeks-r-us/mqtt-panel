@@ -3,9 +3,14 @@
     <h5 class="section-heading">Display</h5>
     <div class="gf-form">
       <label class="gf-form-label width-8">Control</label>
-      <div class="gf-form-select-wrapper max-width-10">
-				<select class="input-medium gf-form-input" ng-model="ctrl.panel.mode" ng-options="t for t in ['Text', 'Slider', 'Switch']" ng-change="ctrl.render()"></select>
-			</div>
+      <gf-form-dropdown
+        model="ctrl.panel.mode"
+        class = "min-width-18"
+        lookup-text="true"
+        allow-custom = "false"
+        get-options="ctrl.getModes()"
+        on-change="ctrl.connect(); ctrl.refresh()">
+      </gf-form-dropdown>
     </div>
     <div class="gf-form">
       <label class="gf-form-label width-8">Text</label>
@@ -13,7 +18,7 @@
         type="text"
         ng-model="ctrl.panel.text"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -23,7 +28,7 @@
         type="text"
         ng-model="ctrl.panel.minValue"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -33,7 +38,7 @@
         type="text"
         ng-model="ctrl.panel.maxValue"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -43,7 +48,7 @@
         type="text"
         ng-model="ctrl.panel.step"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -54,7 +59,7 @@
       type="text"
       ng-model="ctrl.panel.offValue"
       class="gf-form-input"
-      ng-blur="ctrl.render()"
+      ng-blur="ctrl.refresh()"
       min="1"
     />
   </div>
@@ -64,7 +69,7 @@
       type="text"
       ng-model="ctrl.panel.onValue"
       class="gf-form-input"
-      ng-blur="ctrl.render()"
+      ng-blur="ctrl.refresh()"
       min="1"
     />
   </div>

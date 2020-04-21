@@ -1,13 +1,25 @@
 <div class="editor-row">
-  <div class="section gf-form-group">    
+    <div class="section gf-form-group">    
     <h5 class="section-heading">Connection</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Protocol</label>
+      <gf-form-dropdown
+        model="ctrl.panel.mqttProtocol"
+        class = "min-width-18"
+        lookup-text="true"
+        allow-custom = "false"
+        get-options="ctrl.getProtocols()"
+        on-change="ctrl.connect(); ctrl.refresh()"
+      >
+    </gf-form-dropdown>
+    </div>
     <div class="gf-form">
       <label class="gf-form-label width-8">Server</label>
       <input
         type="text"
         ng-model="ctrl.panel.mqttServer"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"
       />
     </div>
@@ -17,7 +29,7 @@
         type="text"
         ng-model="ctrl.panel.mqttServerPort"
         class="gf-form-input"
-        ng-blur="ctrl.connect(); ctrl.render()"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
         min="1"
       />
     </div>
@@ -27,7 +39,7 @@
         type="text"
         ng-model="ctrl.panel.mqttTopicSubscribe"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -37,7 +49,7 @@
         type="text"
         ng-model="ctrl.panel.mqttTopicPublish"
         class="gf-form-input"
-        ng-blur="ctrl.render()"
+        ng-blur="ctrl.refresh()"
         min="1"
       />
     </div>
@@ -48,8 +60,40 @@
       </div>
     </div>
   </div>
+  <div class="section gf-form-group">    
+    <h5 class="section-heading">Authentication</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">BasicAuth</label>
+      <gf-form-dropdown
+        model="ctrl.panel.mqttAuth"
+        class = "min-width-18"
+        lookup-text="true"
+        allow-custom = "false"
+        get-options="ctrl.getMqttAuths()"
+        on-change="ctrl.connect(); ctrl.refresh()">
+      </gf-form-dropdown>
+    </div>
+    <div class="gf-form" ng-if="ctrl.panel.mqttAuth === 'BasicAuth'">
+      <label class="gf-form-label width-8">User</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.mqttUser"
+        class="gf-form-input"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
+        min="1"/>
+    </div>
+    <div class="gf-form" ng-if="ctrl.panel.mqttAuth === 'BasicAuth'">
+      <label class="gf-form-label width-8">Password</label>
+      <input
+        type="password"
+        ng-model="ctrl.panel.mqttPassword"
+        class="gf-form-input"
+        ng-blur="ctrl.connect(); ctrl.refresh()"
+        min="1"/>
+    </div>
+  </div>
   <div class="gf-form">
-    <button class="btn navbar-button" type="button" ng-click="ctrl.render()" >
+    <button class="btn navbar-button" type="button" ng-click="ctrl.refresh()" >
       Test
     </button>
   </div>
