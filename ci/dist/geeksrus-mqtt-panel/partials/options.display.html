@@ -1,0 +1,76 @@
+<div class="editor-row">
+  <div class="section gf-form-group">
+    <h5 class="section-heading">Display</h5>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Control</label>
+      <gf-form-dropdown
+        model="ctrl.panel.mode"
+        class = "min-width-18"
+        lookup-text="true"
+        allow-custom = "false"
+        get-options="ctrl.getModes()"
+        on-change="ctrl.connect(); ctrl.refresh()">
+      </gf-form-dropdown>
+    </div>
+    <div class="gf-form">
+      <label class="gf-form-label width-8">Text</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.text"
+        class="gf-form-input"
+        ng-blur="ctrl.refresh()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form" ng-if="ctrl.panel.mode === 'Slider'">
+      <label class="gf-form-label width-8">Min</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.minValue"
+        class="gf-form-input"
+        ng-blur="ctrl.refresh()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form" ng-if="ctrl.panel.mode === 'Slider'">
+      <label class="gf-form-label width-8">Max</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.maxValue"
+        class="gf-form-input"
+        ng-blur="ctrl.refresh()"
+        min="1"
+      />
+    </div>
+    <div class="gf-form" ng-if="ctrl.panel.mode === 'Slider'">
+      <label class="gf-form-label width-8">Step</label>
+      <input
+        type="text"
+        ng-model="ctrl.panel.step"
+        class="gf-form-input"
+        ng-blur="ctrl.refresh()"
+        min="1"
+      />
+    </div>
+  </div>
+  <div class="gf-form" ng-if="ctrl.panel.mode === 'Switch'">
+    <label class="gf-form-label width-8">Off Value</label>
+    <input
+      type="text"
+      ng-model="ctrl.panel.offValue"
+      class="gf-form-input"
+      ng-blur="ctrl.refresh()"
+      min="1"
+    />
+  </div>
+  <div class="gf-form" ng-if="ctrl.panel.mode === 'Switch'">
+    <label class="gf-form-label width-8">On Value</label>
+    <input
+      type="text"
+      ng-model="ctrl.panel.onValue"
+      class="gf-form-input"
+      ng-blur="ctrl.refresh()"
+      min="1"
+    />
+  </div>
+</div>

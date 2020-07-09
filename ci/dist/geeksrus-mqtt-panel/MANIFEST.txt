@@ -1,0 +1,11 @@
+7df059597099bb7dcf25d2a9aedfaf4465f72d8d  LICENSE
+3a1890e4ea89bd0000838336b88cc6b4d9f1d3f3  README.md
+08f3616c7fb13026f073457aff768ccf5c364ba3  img/controls.png
+5b6549b285f494b190fb4da13b819ed9aa058813  img/logo.svg
+a281b0b083ecd89e2ad5ffdfac53748eea7804e2  img/server.png
+9927b5e20c0cb82c14e25ac3c2814b8efdfd71b4  module.js
+238442ab185e72f732bf5c86a7752b15e1e40d78  module.js.map
+2f0a8a9ef3f96e75b71a24ba9561dda23f885dcc  partials/module.html
+755f17a199a93909f1d314a2ca9c7178f39cd870  partials/options.display.html
+11e8c4e74afe0d6023f09d48f927e48010576dfc  partials/options.server.html
+e4fa127b46f52516c7c2cdfe98cbcf60250e02b0  plugin.json
