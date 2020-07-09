@@ -1,6 +1,6 @@
 {
   "type": "panel",
-  "name": "mqtt-panel",
+  "name": "MQTT panel",
   "id": "geeksrus-mqtt-panel",
   "info": {
     "description": "A panel to enable grafana to fulfil simple control tasks via MQTT",
@@ -17,8 +17,8 @@
     },
     "links": [],
     "screenshots": [],
-    "version": "1.0.2",
-    "updated": "2020/04/21"
+    "version": "1.0.3",
+    "updated": "2020/07/09"
   },
   "dependencies": {
     "grafanaVersion": "6.3.x",
