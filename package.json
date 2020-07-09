@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "angular": "^1.7.9",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mqtt": "^3.0.0"
   },
   "resolutions": {
