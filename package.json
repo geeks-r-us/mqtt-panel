@@ -20,7 +20,7 @@
     "@types/grafana": "github:CorpGlory/types-grafana.git"
   },
   "dependencies": {
-    "angular": "^1.7.9",
+    "angular": "^1.8.0",
     "jquery": "^3.5.0",
     "mqtt": "^3.0.0"
   },
