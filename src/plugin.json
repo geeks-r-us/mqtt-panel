@@ -16,12 +16,16 @@
       "large": "img/logo.svg"
     },
     "links": [],
-    "screenshots": [],
-    "version": "1.0.3",
-    "updated": "2020/07/09"
+    "screenshots": [
+      "img/controls.png",
+      "img/server.png"
+    ],
+    "version": "%VERSION%",
+    "updated": "%TODAY%"
   },
   "dependencies": {
-    "grafanaVersion": "6.3.x",
+    "grafanaVersion": "7.0.x",
+    "grafanaDependency": ">=7.0.0",
     "plugins": []
   }
 }
