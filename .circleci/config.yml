@@ -1,4 +1,9 @@
-version: 2
+version: 2.1
+
+parameters:
+  ssh-fingerprint:
+    type: string
+    default: ${GITHUB_SSH_FINGERPRINT}
 
 aliases:
   # Workflow filters
@@ -143,10 +148,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-            - type: string
-            - ${GITHUB_SSH_FINGERPRINT}
       - attach_workspace:
           at: .
       - restore_cache:
