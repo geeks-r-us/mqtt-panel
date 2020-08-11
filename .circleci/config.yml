@@ -176,8 +176,8 @@ workflows:
       #      - test_integration
       - approve_release:
           type: approval
-          requires:
-            - report
+      #    requires:
+      #      - report
           filters: *filter-only-master
       - publish_github_release:
           requires:
