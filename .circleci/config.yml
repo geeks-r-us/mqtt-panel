@@ -168,12 +168,12 @@ workflows:
           requires:
             - build_plugin
             - build_docs
-      - test_integration:
-          requires:
-            - package
-      - report:
-          requires:
-            - test_integration
+      #- test_integration:
+      #    requires:
+      #      - package
+      #- report:
+      #    requires:
+      #      - test_integration
       - approve_release:
           type: approval
           requires:
