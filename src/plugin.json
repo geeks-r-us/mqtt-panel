@@ -17,8 +17,8 @@
     },
     "links": [],
     "screenshots": [
-      "img/controls.png",
-      "img/server.png"
+      {name: "Controls", path: "img/controls.png",},
+      {name: "Server settings", path: "img/server.png"}
     ],
     "version": "%VERSION%",
     "updated": "%TODAY%"
