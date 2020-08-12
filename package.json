@@ -25,7 +25,8 @@
     "mqtt": "^3.0.0"
   },
   "resolutions": {
-    "@babel/preset-env": "7.9.0"
+    "@babel/preset-env": "7.9.0",
+    "@babel/core": "^7.0.0-0"
   },
   "engines": {
     "node": ">=12 <13"

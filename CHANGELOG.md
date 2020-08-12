@@ -19,3 +19,6 @@
 ## Version 1.0.4
     * Security fix: bump elliptic to 6.5.3
     * Changes in build process for Grafana
+
+## Version 1.0.5
+    * Fixed errors in plugin.json
