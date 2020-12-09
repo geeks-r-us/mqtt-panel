@@ -57,6 +57,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
     this.events.on('render', this.onRender.bind(this));
     this.events.on('data-error', this.onDataError.bind(this));
+    this.events.on('refresh', this.onRefresh.bind(this));
 
     // Create a client instance: Broker, Port, Websocket Path, Client ID
     this.client = this.mqttConnect();
@@ -67,6 +68,10 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   onInitEditMode() {
     this.addEditorTab('Display', `public/plugins/${this.pluginId}/partials/options.display.html`, 2);
     this.addEditorTab('Server', `public/plugins/${this.pluginId}/partials/options.server.html`, 3);
+  }
+
+  onRefresh() {
+    this.panel.text = this.templateSrv.replace(String(this.panel.text));
   }
 
   onRender() {
@@ -119,6 +124,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     client.on('connect', this.onConnect.bind(this));
     client.on('message', this.onMessage.bind(this));
     client.subscribe(this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
+    console.log('subscribing: ' + this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
 
     return client;
   }
