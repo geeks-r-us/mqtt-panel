@@ -3,6 +3,7 @@ import defaultsDeep from 'lodash/defaultsDeep';
 import { DataFrame } from '@grafana/data';
 import $ from 'jquery';
 import mqtt, { MqttClient, IClientOptions } from 'mqtt';
+import jsonata from 'jsonata';
 import './style.css';
 import angluar from 'angular';
 
@@ -26,6 +27,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     mqttAuth: 'None',
     mqttUser: '',
     mqttPassword: '',
+    mqttTopicQuery: '',
     // GUI
     mode: 'Text',
     // Text
@@ -183,6 +185,27 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
   onMessage(topic, message) {
     let value;
+
+    // execute query if set
+    if (this.panel.mqttTopicQuery.length > 0) {
+      try {
+        let jsonmesssage = JSON.parse(message);
+        let expression = jsonata(this.panel.mqttTopicQuery);
+        let result = expression.evaluate(jsonmesssage);
+
+        console.log(
+          'JSONata query: ' + this.panel.mqttTopicQuery + ' on message: ' + message + ' results in: ' + result
+        );
+        if (result) {
+          message = result;
+        } else {
+          message = '';
+        }
+      } catch (e) {
+        console.log(e.message);
+      }
+    }
+
     switch (this.panel.mode) {
       case 'Switch':
         value = this.panel.onValue === message.toString();
