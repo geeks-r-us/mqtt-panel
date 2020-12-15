@@ -17,11 +17,17 @@
     },
     "links": [],
     "screenshots": [
-      "img/controls.png",
-      "img/server.png"
+      {
+		"name": "Controls",
+		"path": "img/controls.png"
+	  },
+      {
+		"name": "Server settings",
+		"path": "img/server.png"
+	  }
     ],
     "version": "1.0.4",
-    "updated": "2020-08-11"
+    "updated": "2020-12-15"
   },
   "dependencies": {
     "grafanaVersion": "7.0.x",
