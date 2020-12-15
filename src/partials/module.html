@@ -38,3 +38,10 @@
     on-change="ctrl.publish()"> 
   </gf-form-switch>
 </div>
+<div class="gf-form-inline" ng-if="ctrl.panel.mode === 'Button'">
+  <div class="gf-form width-6">
+    <button class="btn navbar-button" type="button" text="Update" ng-click="ctrl.publish()" >
+      {{ctrl.panel.text}}
+    </button>
+  </div>
+</div>

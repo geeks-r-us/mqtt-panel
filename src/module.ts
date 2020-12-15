@@ -34,6 +34,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     minValue: 0,
     maxValue: 100,
     step: 1,
+	// Button
     // Switch //TODO: Translate
     offValue: 'false',
     onValue: 'true',
@@ -135,6 +136,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       { text: 'Text', value: 'Text' },
       { text: 'Slider', value: 'Slider' },
       { text: 'Switch', value: 'Switch' },
+	  { text: 'Button', value: 'Button' },
     ];
   }
 
@@ -181,6 +183,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       case 'Switch':
         value = this.panel.onValue === message.toString();
         break;
+	  case 'Button':
       case 'Text':
       case 'Slider':
         value = message;
@@ -203,6 +206,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       case 'Switch':
         value = this.panel.value ? this.panel.onValue : this.panel.offValue;
         break;
+	  case 'Button':
       case 'Text':
       case 'Slider':
         value = this.panel.value.toString();
