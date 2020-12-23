@@ -183,10 +183,12 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       case 'Switch':
         value = this.panel.onValue === message.toString();
         break;
-	  case 'Button':
       case 'Text':
       case 'Slider':
-        value = message;
+	    value = message;
+        break;
+	  case 'Button':
+        //value = message;
         break;
     }
 
@@ -199,7 +201,6 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.client.end(true);
     this.client = this.mqttConnect();
   }
-
   publish() {
     let value;
     switch (this.panel.mode) {
@@ -209,7 +210,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 	  case 'Button':
       case 'Text':
       case 'Slider':
-        value = this.panel.value.toString();
+        value = this.templateSrv.replace(this.panel.value.toString(), this.templateSrv.getVariables());
         break;
     }
     console.log('Published : ' + this.templateSrv.replace(String(this.panel.mqttTopicPublish)) + ' : ' + value);
