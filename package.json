@@ -11,18 +11,19 @@
   "author": "geeks-r-us",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@grafana/runtime": "7.0.0",
-    "@grafana/data": "7.0.0",
-    "@grafana/toolkit": "7.0.0",
-    "@grafana/ui": "7.0.0",
+    "@grafana/data": "7.2.0",
+    "@grafana/runtime": "7.2.0",
+    "@grafana/toolkit": "7.2.0",
+    "@grafana/ui": "7.2.0",
+    "@types/grafana": "github:CorpGlory/types-grafana.git",
     "@types/jquery": "^3.3.34",
-    "@types/paho-mqtt": "^1.0.4",
-    "@types/grafana": "github:CorpGlory/types-grafana.git"
+    "@types/paho-mqtt": "^1.0.4"
   },
   "dependencies": {
     "angular": "^1.8.0",
-    "jquery": "^3.5.0",
-    "mqtt": "^3.0.0"
+    "jquery": "^3.5.1",
+    "jsonata": "^1.8.4",
+    "mqtt": "^4.2.1"
   },
   "resolutions": {
     "@babel/preset-env": "7.9.0"

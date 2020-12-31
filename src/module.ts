@@ -3,6 +3,7 @@ import defaultsDeep from 'lodash/defaultsDeep';
 import { DataFrame } from '@grafana/data';
 import $ from 'jquery';
 import mqtt, { MqttClient, IClientOptions } from 'mqtt';
+import jsonata from 'jsonata';
 import './style.css';
 import angluar from 'angular';
 
@@ -26,6 +27,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     mqttAuth: 'None',
     mqttUser: '',
     mqttPassword: '',
+    mqttTopicQuery: '',
     // GUI
     mode: 'Text',
     // Text
@@ -58,6 +60,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.events.on('init-edit-mode', this.onInitEditMode.bind(this));
     this.events.on('render', this.onRender.bind(this));
     this.events.on('data-error', this.onDataError.bind(this));
+    this.events.on('refresh', this.onRefresh.bind(this));
 
     // Create a client instance: Broker, Port, Websocket Path, Client ID
     this.client = this.mqttConnect();
@@ -68,6 +71,10 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   onInitEditMode() {
     this.addEditorTab('Display', `public/plugins/${this.pluginId}/partials/options.display.html`, 2);
     this.addEditorTab('Server', `public/plugins/${this.pluginId}/partials/options.server.html`, 3);
+  }
+
+  onRefresh() {
+    this.panel.text = this.templateSrv.replace(String(this.panel.text));
   }
 
   onRender() {
@@ -120,6 +127,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     client.on('connect', this.onConnect.bind(this));
     client.on('message', this.onMessage.bind(this));
     client.subscribe(this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
+    console.log('subscribing: ' + this.templateSrv.replace(String(this.panel.mqttTopicSubscribe)));
 
     return client;
   }
@@ -179,6 +187,27 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
   onMessage(topic, message) {
     let value;
+
+    // execute query if set
+    if (this.panel.mqttTopicQuery.length > 0) {
+      try {
+        let jsonmesssage = JSON.parse(message);
+        let expression = jsonata(this.panel.mqttTopicQuery);
+        let result = expression.evaluate(jsonmesssage);
+
+        console.log(
+          'JSONata query: ' + this.panel.mqttTopicQuery + ' on message: ' + message + ' results in: ' + result
+        );
+        if (result) {
+          message = result;
+        } else {
+          message = '';
+        }
+      } catch (e) {
+        console.log(e.message);
+      }
+    }
+
     switch (this.panel.mode) {
       case 'Switch':
         value = this.panel.onValue === message.toString();
