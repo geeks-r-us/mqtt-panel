@@ -246,11 +246,14 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.client.end(true);
     this.client = this.mqttConnect();
   }
+  
   publish() {
     let value;
     switch (this.panel.mode) {
       case 'Switch':
-        value = this.panel.value ? this.templateSrv.replace(String(this.panel.onValue)) : this.templateSrv.replace(String(this.panel.offValue));
+        value = this.panel.value
+          ? this.templateSrv.replace(String(this.panel.onValue))
+          : this.templateSrv.replace(String(this.panel.offValue));
         break;
       case 'Button':
       case 'Text':
