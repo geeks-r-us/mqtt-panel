@@ -30,16 +30,29 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     mqttTopicQuery: '',
     // GUI
     mode: 'Text',
-    // Text
-    text: 'Send',
-    // Slider
-    minValue: 0,
-    maxValue: 100,
-    step: 1,
-	// Button
-    // Switch //TODO: Translate
-    offValue: 'false',
-    onValue: 'true',
+
+    model: {
+      // Text
+      text: 'Send',
+      // Slider
+      minValue: 0,
+      maxValue: 100,
+      step: 1,
+      // Switch
+      offValue: 'false',
+      onValue: 'true',
+    },
+    viewModel: {
+      // Text
+      text: 'Send',
+      // Slider
+      minValue: 0,
+      maxValue: 100,
+      step: 1,
+      // Switch
+      offValue: 'false',
+      onValue: 'true',
+    },
   };
 
   client: mqtt.MqttClient;
@@ -74,7 +87,10 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   }
 
   onRefresh() {
-    this.panel.text = this.templateSrv.replace(String(this.panel.text));
+    this.panel.viewModel.text = this.templateSrv.replace(String(this.panel.model.text));
+    this.panel.viewModel.minValue = this.templateSrv.replace(String(this.panel.model.minValue));
+    this.panel.viewModel.maxValue = this.templateSrv.replace(String(this.panel.model.maxValue));
+    this.panel.viewModel.step = this.templateSrv.replace(String(this.panel.model.step));
   }
 
   onRender() {
@@ -144,7 +160,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       { text: 'Text', value: 'Text' },
       { text: 'Slider', value: 'Slider' },
       { text: 'Switch', value: 'Switch' },
-	  { text: 'Button', value: 'Button' },
+      { text: 'Button', value: 'Button' },
     ];
   }
 
@@ -214,9 +230,9 @@ export default class MqttCtrl extends MetricsPanelCtrl {
         break;
       case 'Text':
       case 'Slider':
-	    value = message;
+        value = message;
         break;
-	  case 'Button':
+      case 'Button':
         //value = message;
         break;
     }
@@ -234,9 +250,9 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     let value;
     switch (this.panel.mode) {
       case 'Switch':
-        value = this.panel.value ? this.panel.onValue : this.panel.offValue;
+        value = this.panel.value ? this.templateSrv.replace(String(this.panel.onValue)) : this.templateSrv.replace(String(this.panel.offValue));
         break;
-	  case 'Button':
+      case 'Button':
       case 'Text':
       case 'Slider':
         value = this.templateSrv.replace(this.panel.value.toString(), this.templateSrv.getVariables());
