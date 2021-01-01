@@ -246,7 +246,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     this.client.end(true);
     this.client = this.mqttConnect();
   }
-  
+
   publish() {
     let value;
     switch (this.panel.mode) {
