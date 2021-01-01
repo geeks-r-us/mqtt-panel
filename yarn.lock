@@ -2339,6 +2339,11 @@ amdefine@>=0.0.4:
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
 
+angular-bootstrap@^0.12.2:
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/angular-bootstrap/-/angular-bootstrap-0.12.2.tgz#de9900a7db087a7e9da47304a9c2f77f9c069827"
+  integrity sha1-3pkAp9sIen6dpHMEqcL3f5wGmCc=
+
 angular@^1.8.0:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/angular/-/angular-1.8.2.tgz#5983bbb5a9fa63e213cb7749199e0d352de3a2f1"
@@ -5807,6 +5812,11 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   version "4.2.4"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
+
+grafana-icon@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/grafana-icon/-/grafana-icon-0.0.1.tgz#09740e45c16b6213e326a4425e3f2acc7f7b4d81"
+  integrity sha1-CXQORcFrYhPjJqRCXj8qzH97TYE=
 
 growly@^1.3.0:
   version "1.3.0"

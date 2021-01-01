@@ -19,3 +19,12 @@
 ## Version 1.0.4
     * Security fix: bump elliptic to 6.5.3
     * Changes in build process for Grafana
+
+## Verion 1.0.5
+    * Fixed errors in plugin.json
+
+## Version 1.0.6
+    * Securitiy fixes: bumped some critical dependencies
+    * Fixed compiling issues (#12)
+    * All option fields can process Grafana variables now
+    * Added button widget (thx to ManuelBu96)
