@@ -117,14 +117,14 @@ jobs:
         command: |
           yarn install --pure-lockfile
           ./node_modules/.bin/grafana-toolkit plugin:test
-    #- persist_to_workspace:
-    #    root: .
-    #    paths:
-    #    - ci/jobs/test_integration
-    #- store_test_results:
-    #    path: ci/jobs/test_integration
-    #- store_artifacts:
-    #    path: ci/jobs/test_integration
+    - persist_to_workspace:
+        root: .
+        paths:
+        - ci/jobs/test_integration
+    - store_test_results:
+        path: ci/jobs/test_integration
+    - store_artifacts:
+        path: ci/jobs/test_integration
 
   report:
     docker:
@@ -169,16 +169,16 @@ workflows:
           requires:
             - build_plugin
             - build_docs
-      #- test_integration:
-      #    requires:
-      #      - package
-      #- report:
-      #    requires:
-      #      - test_integration
+      - test_integration:
+          requires:
+            - package
+      - report:
+          requires:
+            - test_integration
       - approve_release:
           type: approval
-      #    requires:
-      #      - report
+          requires:
+            - report
           filters: *filter-only-master
       - publish_github_release:
           requires:
