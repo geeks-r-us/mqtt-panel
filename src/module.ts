@@ -49,9 +49,6 @@ export default class MqttCtrl extends MetricsPanelCtrl {
       minValue: 0,
       maxValue: 100,
       step: 1,
-      // Switch
-      offValue: 'false',
-      onValue: 'true',
     },
   };
 
@@ -226,7 +223,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
 
     switch (this.panel.mode) {
       case 'Switch':
-        value = this.panel.onValue === message.toString();
+        value = this.templateSrv.replace(String(this.panel.model.onValue)) === message.toString();
         break;
       case 'Text':
       case 'Slider':
@@ -252,8 +249,8 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     switch (this.panel.mode) {
       case 'Switch':
         value = this.panel.value
-          ? this.templateSrv.replace(String(this.panel.onValue))
-          : this.templateSrv.replace(String(this.panel.offValue));
+          ? this.templateSrv.replace(String(this.panel.model.onValue))
+          : this.templateSrv.replace(String(this.panel.model.offValue));
         break;
       case 'Button':
       case 'Text':

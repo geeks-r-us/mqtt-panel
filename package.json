@@ -1,6 +1,6 @@
 {
   "name": "geeksrus-mqtt-panel",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A panel to enable grafana to fulfil simple control tasks via MQTT",
   "scripts": {
     "build": "grafana-toolkit plugin:build",

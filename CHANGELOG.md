@@ -28,3 +28,6 @@
     * Fixed compiling issues (#12)
     * All option fields can process Grafana variables now
     * Added button widget (thx to ManuelBu96)
+
+## Version 1.0.7
+   * Fixed switch issue (#23)
