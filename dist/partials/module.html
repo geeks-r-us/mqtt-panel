@@ -8,7 +8,7 @@
   </div>
   <div class="gf-form width-6">
     <button class="btn navbar-button" type="button" text="Update" ng-click="ctrl.publish()" >
-      {{ctrl.panel.text}}
+      {{ctrl.panel.viewModel.text}}
     </button>
   </div>
 </div>
@@ -19,21 +19,21 @@
       type="range" 
       string-to-number
       ng-model="ctrl.panel.value" 
-      min="{{ctrl.panel.minValue}}" 
-      max="{{ctrl.panel.maxValue}}" 
-      step="{{ctrl.panel.step}}" 
+      min="{{ctrl.panel.viewModel.minValue}}" 
+      max="{{ctrl.panel.viewModel.maxValue}}" 
+      step="{{ctrl.panel.viewModel.step}}" 
       ng-change="ctrl.publish()"
       ng-model-options="{ debounce: 500 }"/>
   </div>
   <div class="slider-text">
-   {{ctrl.panel.text}} : {{ctrl.panel.value}}
+   {{ctrl.panel.viewModel.text}} : {{ctrl.panel.value}}
   </div>
 </div>
 <div ng-if="ctrl.panel.mode==='Switch'">
   <gf-form-switch 
     class="gf-form" 
     bool-to-number
-    label="{{ctrl.panel.text}}" 
+    label="{{ctrl.panel.viewModel.text}}" 
     checked="ctrl.panel.value" 
     on-change="ctrl.publish()"> 
   </gf-form-switch>
@@ -41,7 +41,7 @@
 <div class="gf-form-inline" ng-if="ctrl.panel.mode === 'Button'">
   <div class="gf-form width-6">
     <button class="btn navbar-button" type="button" text="Update" ng-click="ctrl.publish()" >
-      {{ctrl.panel.text}}
+      {{ctrl.panel.viewModel.text}}
     </button>
   </div>
 </div>

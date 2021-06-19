@@ -26,8 +26,8 @@
 		"path": "img/server.png"
 	  }
     ],
-    "version": "1.0.4",
-    "updated": "2020-12-31"
+    "version": "1.0.7-1",
+    "updated": "2021-05-17"
   },
   "dependencies": {
     "grafanaVersion": "7.0.x",
