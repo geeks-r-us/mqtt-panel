@@ -30,6 +30,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     mqttTopicQuery: '',
     // GUI
     mode: 'Text',
+    receiveOnly: false,
 
     model: {
       // Text
@@ -52,6 +53,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     },
   };
 
+  firstReceived: boolean = false;
   client: mqtt.MqttClient;
   input: any = null;
   value: any = null;
@@ -199,6 +201,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   }
 
   onMessage(topic, message) {
+    this.firstReceived = true;
     let value;
 
     // execute query if set
@@ -242,6 +245,7 @@ export default class MqttCtrl extends MetricsPanelCtrl {
   connect() {
     this.client.end(true);
     this.client = this.mqttConnect();
+    this.firstReceived = false;
   }
 
   publish() {
@@ -258,8 +262,15 @@ export default class MqttCtrl extends MetricsPanelCtrl {
         value = this.templateSrv.replace(this.panel.value.toString(), this.templateSrv.getVariables());
         break;
     }
-    console.log('Published : ' + this.templateSrv.replace(String(this.panel.mqttTopicPublish)) + ' : ' + value);
-    this.client.publish(this.templateSrv.replace(String(this.panel.mqttTopicPublish)), value);
+    if(this.firstReceived)
+    {
+      console.log('Published : ' + this.templateSrv.replace(String(this.panel.mqttTopicPublish)) + ' : ' + value);
+      this.client.publish(this.templateSrv.replace(String(this.panel.mqttTopicPublish)), value);
+    } else {
+      console.log('NOT Published : ' + this.templateSrv.replace(String(this.panel.mqttTopicPublish)) + ' : ' + value);
+      console.log("CAUSE: Not received a message first.");
+      this.firstReceived = true;
+    }
   }
 
   connected() {
