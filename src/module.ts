@@ -19,8 +19,8 @@ export default class MqttCtrl extends MetricsPanelCtrl {
     // Value
     value: 10,
     //Server
-    mqttProtocol: 'ws',
-    mqttServer: '192.168.178.47', //TODO: get base url from website
+    mqttProtocol: (window.location.protocol === 'https:') ? 'wss' : 'ws',
+    mqttServer: window.location.hostname,
     mqttServerPort: 9001,
     mqttTopicSubscribe: 'grafana/mqtt-panel',
     mqttTopicPublish: 'grafana/mqtt-panel/set',
